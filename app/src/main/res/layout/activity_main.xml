@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Essentials Tracker"
+            android:textSize="100px" />
+
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Switch" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/item"
+            android:layout_width="206dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40px"
+            android:text="Edit Items"
+            android:textSize="50px" />
+
+        <Button
+            android:id="@+id/trackitem"
+            android:layout_width="206dp"
+            android:layout_height="wrap_content"
+            android:text="Track Items"
+            android:textSize="50px" />
+
+        <Button
+            android:id="@+id/lightSwitch"
+            android:layout_width="206dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40px"
+            android:text="Light Switch"
+            android:textSize="50px" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
