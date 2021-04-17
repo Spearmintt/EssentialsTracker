@@ -70,7 +70,7 @@ public class CharacteristicOperationExampleActivity extends AppCompatActivity {
         bleDevice = SampleApplication.getRxBleClient(this).getBleDevice(macAddress);
         connectionObservable = prepareConnectionObservable();
         //noinspection ConstantConditions
-        getSupportActionBar().setSubtitle("MAC: {macAddress}");
+        getSupportActionBar().setSubtitle(getString(R.string.mac_address, macAddress));
     }
 
     private Observable<RxBleConnection> prepareConnectionObservable() {
@@ -90,7 +90,7 @@ public class CharacteristicOperationExampleActivity extends AppCompatActivity {
                     .flatMapSingle(RxBleConnection::discoverServices)
                     .flatMapSingle(rxBleDeviceServices -> rxBleDeviceServices.getCharacteristic(characteristicUuid))
                     .observeOn(AndroidSchedulers.mainThread())
-                    .doOnSubscribe(disposable -> connectButton.setText("Connecting"))
+                    .doOnSubscribe(disposable -> connectButton.setText(R.string.connecting))
                     .subscribe(
                             characteristic -> {
                                 updateUI(characteristic);
@@ -208,7 +208,7 @@ public class CharacteristicOperationExampleActivity extends AppCompatActivity {
      * @param characteristic a nullable {@link BluetoothGattCharacteristic}. If it is null then UI is assuming a disconnected state.
      */
     private void updateUI(BluetoothGattCharacteristic characteristic) {
-        connectButton.setText(characteristic != null ? "Disconnect" : "Connect");
+        connectButton.setText(characteristic != null ? R.string.disconnect : R.string.connect);
         readButton.setEnabled(hasProperty(characteristic, BluetoothGattCharacteristic.PROPERTY_READ));
         writeButton.setEnabled(hasProperty(characteristic, BluetoothGattCharacteristic.PROPERTY_WRITE));
         notifyButton.setEnabled(hasProperty(characteristic, BluetoothGattCharacteristic.PROPERTY_NOTIFY));

@@ -50,7 +50,7 @@ public class RssiPeriodicExampleActivity extends AppCompatActivity {
     }
 
     private void updateRssi(int rssiValue) {
-        rssiView.setText("Rssi: {rssiValue}");
+        rssiView.setText(getString(R.string.read_rssi, rssiValue));
     }
 
     @Override
@@ -59,7 +59,7 @@ public class RssiPeriodicExampleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_example5);
         ButterKnife.bind(this);
         String macAddress = getIntent().getStringExtra(DeviceActivity.EXTRA_MAC_ADDRESS);
-        setTitle("MAC: {macAddress}");
+        setTitle(getString(R.string.mac_address, macAddress));
         bleDevice = SampleApplication.getRxBleClient(this).getBleDevice(macAddress);
 
         // How to listen for connection state changes
@@ -96,7 +96,7 @@ public class RssiPeriodicExampleActivity extends AppCompatActivity {
 
     private void updateUI() {
         final boolean connected = isConnected();
-        connectButton.setText(connected ? "Disconnect" : "Connect");
+        connectButton.setText(connected ? R.string.disconnect : R.string.connect);
     }
 
     @Override

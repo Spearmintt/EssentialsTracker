@@ -87,7 +87,7 @@ public class AdvancedCharacteristicOperationExampleActivity extends AppCompatAct
         final UUID characteristicUuid = (UUID) getIntent().getSerializableExtra(EXTRA_CHARACTERISTIC_UUID);
         final RxBleDevice bleDevice = SampleApplication.getRxBleClient(this).getBleDevice(macAddress);
         //noinspection ConstantConditions
-        getSupportActionBar().setSubtitle("MAC: {macAddress}");
+        getSupportActionBar().setSubtitle(getString(R.string.mac_address, macAddress));
 
         /*
          * Since in this activity we use the same button for user interaction for connecting the peripheral, disconnecting before connection
